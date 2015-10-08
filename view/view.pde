@@ -20,6 +20,8 @@ void drawRadar(){
   
   // Inner circles
   ellipse(width/2, height/2, outer_radius*0.75, outer_radius*0.75);
+  
+  ellipse(width/2, height/2, outer_radius*0.5, outer_radius*0.5);
 
   ellipse(width/2, height/2, outer_radius/3, outer_radius/3); 
 
@@ -31,7 +33,6 @@ void drawRadar(){
   // Horizontal Axis
   line(width - outer_radius - 100, height/2, width - 100, height/2);
   
-  // Upper Diagonal Axis
 }
 
 void setPoint(int distance, float degree){

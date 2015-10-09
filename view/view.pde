@@ -1,37 +1,51 @@
 import processing.serial.*;
-Serial port; 
+Serial port;
 
 void setup(){
   size(800, 600);
+  drawRadar();
+ 
+  port = new Serial(this, Serial.list()[1], 9600);
+  
 }
 
 void draw() {
-  drawRadar();
+  String readString = port.readString();
+  
+  int readInt = port.read();
+  
+  if (port.available() > 0) 
+  System.out.println("is available");
+  else System.out.println("is not available");
+  
+  
+  
+  String output = port.readStringUntil('\n');
+  System.out.println(output + readInt);
+  
   setPoint(50, HALF_PI);
+  
 }
 
 void drawRadar(){
-  int outer_radius = 600;
+  int outerRadius = 600;
+  int elipseQuantity = 8;
   
   //Outer circle
   fill(0);
   stroke(255);
-  ellipse(width/2, height/2, outer_radius, outer_radius);
   
-  // Inner circles
-  ellipse(width/2, height/2, outer_radius*0.75, outer_radius*0.75);
-  
-  ellipse(width/2, height/2, outer_radius*0.5, outer_radius*0.5);
-
-  ellipse(width/2, height/2, outer_radius/3, outer_radius/3); 
-
-  ellipse(width/2, height/2, outer_radius/6, outer_radius/6);
+  for (float i = 0 ; i < elipseQuantity ; i++) {
+    float currentRadious = outerRadius * (1.0 - i/elipseQuantity); 
+    
+    arc(width/2, height/2, currentRadious, currentRadious, PI, 2*PI);
+  }
   
   // Vertical Axis
-  line(width/2, height, width/2, 0);
+  line(width/2, height/2, width/2, 0);
   
   // Horizontal Axis
-  line(width - outer_radius - 100, height/2, width - 100, height/2);
+  line(width - outerRadius - 100, height/2, width - 100, height/2);
   
 }
 

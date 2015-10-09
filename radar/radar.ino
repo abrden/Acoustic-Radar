@@ -24,7 +24,6 @@ void setup() {
 }
 
 void loop() {
-      
   // Rotates the servo motor from 15 to 165 degrees
   for(int degree = minDegree; degree <= maxDegree; degree++) {  
     moveServo(degree);
@@ -80,9 +79,8 @@ long microsecondsToCentimeters(long microseconds) {
 }
 
 void printData(int degree) {
-
-  Serial.print(degree); // Sends the current degree into the Serial Port
-  Serial.print("-");
-  Serial.println(distance); // Sends the distance value into the Serial Port
   
+  Serial.println(degree); // Sends the current degree into the Serial Port
+  //Serial.print("-");
+  //Serial.println(distance); // Sends the distance value into the Serial Port
 }

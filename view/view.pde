@@ -1,27 +1,28 @@
 import processing.serial.*;
 
-Serial port = new Serial(this, Serial.list()[0], 9600);
+Serial port;
 int degree;
 int distance;
 
 void setup() {
   size(800, 600);
+  delay(10000);
+  port = new Serial(this, Serial.list()[0], 9600);
+  
   drawRadar();
 }
 
 void draw() {
+  if (port.available() > 0) {
+    String output = port.readStringUntil('\n');
+    System.out.println(output);
+  }
+
+  //serialEvent();
   
-  //if (port.available() > 0) System.out.println("is available");
-  //else System.out.println("is not available");
-  
-  //String output = port.readStringUntil('\n');
-  //System.out.println(output);
-  
-  serialEvent();
-  
-  System.out.print(degree);
-  System.out.print("-");
-  System.out.println(distance);
+  //System.out.print(degree);
+  //System.out.print("-");
+  //System.out.println(distance);
   
   setPoint(50, HALF_PI);
   
@@ -62,13 +63,16 @@ void setPoint(int distance, float degree){
 void serialEvent() {
   
   String output = port.readStringUntil('\n');  // read the serial port until a new line
+  
+  System.out.print("out");
+  System.out.print(output);
    
     if (output != null) {  // if theres data in between the new lines
         
         output = trim(output); // get rid of whitespace
         
         String strDegree = output.substring(0, output.indexOf("-"));
-        String strDistance = output.substring(output.indexOf("-")+1, output.length());
+        String strDistance = output.substring(output.indexOf("-") + 1, output.length());
         
         degree = Integer.parseInt(strDegree);
         distance = Integer.parseInt(strDistance);

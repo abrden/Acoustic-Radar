@@ -9,8 +9,8 @@ int INNER_RADAR_ELLIPSES = 8;
   
 void setup() {
   size(800, 600);
-  //delay(10000);
-  //port = new Serial(this, Serial.list()[0], 9600);
+  delay(10000);
+  port = new Serial(this, Serial.list()[0], 9600);
   
 
   drawRadar(RADAR_RADIUS, INNER_RADAR_ELLIPSES);
@@ -23,14 +23,14 @@ void draw() {
     System.out.println(output);
   }
   */
-  //serialEvent();
+  serialEvent();
   
   //System.out.print(degree);
   //System.out.print("-");
   //System.out.println(distance);
   
-  drawRadarPosition(QUARTER_PI, RADAR_RADIUS);
-  setPoint(50, HALF_PI);
+  drawRadarPosition(degree, RADAR_RADIUS);
+  setPoint(distance, degree);
   
 }
 

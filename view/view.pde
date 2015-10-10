@@ -29,9 +29,16 @@ void draw() {
   //System.out.print("-");
   //System.out.println(distance);
   
+  int distanceInPixels = convertDistanceToPixels(distance);
   drawRadarPosition(degree, RADAR_RADIUS);
-  setPoint(distance, degree);
+  setPoint(distanceInPixels, degree);
   
+}
+
+int convertDistanceToPixels(int distance) {
+  
+  int conversionRate = 1;
+  return distance * conversionRate;
 }
 
 void serialEvent() {

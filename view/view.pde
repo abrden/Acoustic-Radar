@@ -1,33 +1,33 @@
 import processing.serial.*;
-Serial port;
 
-void setup(){
+Serial port = new Serial(this, Serial.list()[0], 9600);
+int degree;
+int distance;
+
+void setup() {
   size(800, 600);
   drawRadar();
- 
-  port = new Serial(this, Serial.list()[1], 9600);
-  
 }
 
 void draw() {
-  String readString = port.readString();
   
-  int readInt = port.read();
+  //if (port.available() > 0) System.out.println("is available");
+  //else System.out.println("is not available");
   
-  if (port.available() > 0) 
-  System.out.println("is available");
-  else System.out.println("is not available");
+  //String output = port.readStringUntil('\n');
+  //System.out.println(output);
   
+  serialEvent();
   
-  
-  String output = port.readStringUntil('\n');
-  System.out.println(output + readInt);
+  System.out.print(degree);
+  System.out.print("-");
+  System.out.println(distance);
   
   setPoint(50, HALF_PI);
   
 }
 
-void drawRadar(){
+void drawRadar() {
   int outerRadius = 600;
   int elipseQuantity = 8;
   
@@ -57,4 +57,21 @@ void setPoint(int distance, float degree){
   fill(62, 180, 137);
   stroke(62, 180, 137);
   ellipse(width/2 + x, height/2 - y, 10, 10);
+}
+
+void serialEvent() {
+  
+  String output = port.readStringUntil('\n');  // read the serial port until a new line
+   
+    if (output != null) {  // if theres data in between the new lines
+        
+        output = trim(output); // get rid of whitespace
+        
+        String strDegree = output.substring(0, output.indexOf("-"));
+        String strDistance = output.substring(output.indexOf("-")+1, output.length());
+        
+        degree = Integer.parseInt(strDegree);
+        distance = Integer.parseInt(strDistance);
+        
+        }
 }

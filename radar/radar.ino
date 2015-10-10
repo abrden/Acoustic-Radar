@@ -80,7 +80,8 @@ long microsecondsToCentimeters(long microseconds) {
 
 void printData(int degree) {
   
-  Serial.println(degree); // Sends the current degree into the Serial Port
-  //Serial.print("-");
-  //Serial.println(distance); // Sends the distance value into the Serial Port
+  Serial.print(degree); // Sends the current degree into the Serial Port
+  Serial.print("-");
+  Serial.println(distance); // Sends the distance value into the Serial Port
+
 }

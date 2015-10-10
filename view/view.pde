@@ -12,7 +12,6 @@ void setup() {
   delay(10000);
   port = new Serial(this, Serial.list()[0], 9600);
   
-
   drawRadar(RADAR_RADIUS, INNER_RADAR_ELLIPSES);
 }
 
@@ -23,12 +22,9 @@ void draw() {
     System.out.println(output);
   }
   */
-  serialEvent();
   
-  //System.out.print(degree);
-  //System.out.print("-");
-  //System.out.println(distance);
-  
+  if (port.available() > 0) serialEvent();
+
   drawRadarPosition(degree, RADAR_RADIUS);
   setPoint(distance, degree);
   

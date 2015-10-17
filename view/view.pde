@@ -7,6 +7,10 @@ int MAX_DISTANCE = 600;
 int MIN_DISTANCE = 10;
 int INNER_RADAR_ELLIPSES = 8;
 
+int testingIteration = 0;
+int testingPosition = 50;
+int testingDegree = 15;
+
 Radar radar;
   
 void setup() {
@@ -22,6 +26,7 @@ void setup() {
 }
 
 void draw() {
+  
   if (port.available() > 0) {
     serialEvent();
   }
@@ -30,6 +35,8 @@ void draw() {
   radar.drawRadarPosition(degree, MIN_DISTANCE);
   
   radar.setPoint(distanceInPixels, degree);  
+  
+  iterateTestingIteration();
 }
 
 int convertDistanceToPixels(int distance) {
@@ -52,4 +59,15 @@ void serialEvent() {
     degree = Integer.parseInt(strDegree);
     distance = Integer.parseInt(strDistance);    
   }
+}
+
+void iterateTestingIteration() {
+  testingIteration ++;
+  
+  if (testingIteration > 2) {
+    radar.drawRadarPosition((int)random(testingPosition - 20, testingPosition + 20), testingDegree < 164 ? testingDegree ++ : testingDegree --);
+    radar.setPoint((int)random(testingPosition - 20, testingPosition + 20), testingDegree < 164 ? testingDegree ++ : testingDegree --);
+
+    testingIteration = 0;
+  } 
 }

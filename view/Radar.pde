@@ -22,25 +22,23 @@ public class Radar {
       
       arc(width/2, height/2, currentRadius, currentRadius, PI, 2*PI);
     }
-   
+    
     line(width/2, height/2, width/2, 0);
     line(width - maximumDistance - 100, height/2, width - 100, height/2);
     
   }
   
-  void drawRadarPosition(float degree, int radarRadius) {
-    
-    float x = radarRadius * cos(degree);
-    float y = radarRadius * sin(degree);
+  void drawRadarPosition(int radarRadius, float degree) {
+    float x = radarRadius * cos(radians(degree));
+    float y = radarRadius * sin(radians(degree));
     
     stroke(255, 26, 26);
     line(width/2, height/2, (width + x)/2, (height - y)/2);
   }
   
-  void setPoint(int distance, float degree) {
-    
-    float x = distance * cos(degree);
-    float y = distance * sin(degree);
+  void setPoint(int distance, float degree) {    
+    float x = distance * cos(radians(degree));
+    float y = distance * sin(radians(degree));
     
     fill(62, 180, 137);
     stroke(62, 180, 137);

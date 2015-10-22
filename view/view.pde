@@ -1,26 +1,16 @@
 import processing.serial.*;
 
 Serial port;
-int degree;
-int distance;
-int MAX_DISTANCE = 600;
-int MIN_DISTANCE = 10;
-int INNER_RADAR_ELLIPSES = 8;
-
-int testingIteration = 0;
-int testingPosition = 50;
-int testingDegree = 15;
-
+SerialReader reader;
 Radar radar;
   
 void setup() {
   size(800, 600);
   
-  //uncomment delay when using
   //delay(10000);
   port = new Serial(this, Serial.list()[0], 9600);
-  
-  radar = new Radar(MAX_DISTANCE, MIN_DISTANCE, INNER_RADAR_ELLIPSES);
+  reader = new SerialReader(port);
+  radar = new Radar();
   
   radar.drawRadar();
 }
@@ -28,38 +18,16 @@ void setup() {
 void draw() {
   
   if (port.available() > 0) {
-    serialEvent();
+    radar.addSerialRead(reader.serialEvent());
   }
   
-  int distanceInPixels = convertDistanceToPixels(distance);
-  radar.drawRadarPosition(degree, MIN_DISTANCE);
-  
-  radar.setPoint(distanceInPixels, degree);  
-  
-  iterateTestingIteration();
+  radar.drawRadar();
 }
 
-int convertDistanceToPixels(int distance) {
-  int conversionRate = 1;
-  return distance * conversionRate;
-}
-
-void serialEvent() {
-  String output = port.readStringUntil('\n');  // read the serial port until a new line
-  
-  System.out.print("out");
-  System.out.print(output);
-   
-  if (output != null) {  // if theres data in between the new lines      
-    output = trim(output); // get rid of whitespace
-        
-    String strDegree = output.substring(0, output.indexOf("-"));
-    String strDistance = output.substring(output.indexOf("-") + 1, output.length());
-        
-    degree = Integer.parseInt(strDegree);
-    distance = Integer.parseInt(strDistance);    
-  }
-}
+//SantiTest turbio 
+int testingIteration = 0;
+int testingPosition = 50;
+int testingDegree = 15;
 
 void iterateTestingIteration() {
   testingIteration ++;

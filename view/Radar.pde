@@ -1,19 +1,33 @@
 public class Radar {
   
+  private int MAX_DISTANCE = 600;
+  private int MIN_DISTANCE = 10;
+  private int INNER_RADAR_ELLIPSES = 8;
+  
   private int maximumDistance;
   private int minimumDistance;
   private int subdivisions;
+
+  SensorData sensorData;
  
-  public Radar(int maximumDistance, int minimumDistance,int subdivisions) {
-    this.maximumDistance = maximumDistance;
-    this.minimumDistance = minimumDistance;
-    this.subdivisions = subdivisions;
-  
+  public Radar() {
+    this.maximumDistance = MAX_DISTANCE;
+    this.minimumDistance = MIN_DISTANCE;
+    this.subdivisions = INNER_RADAR_ELLIPSES;
+    sensorData = new SensorData();
   }
   
   public void drawRadar() {
-    
-    //Outer circle
+    drawDivisions();
+    drawLines();
+    drawReadings();
+  }
+  
+  public void addSerialRead(SerialRead read) {
+    sensorData.addData(read);
+  }
+  
+  private void drawDivisions() {
     fill(0);
     stroke(255);
     
@@ -23,9 +37,17 @@ public class Radar {
       arc(width/2, height/2, currentRadius, currentRadius, PI, 2*PI);
     }
     
+  }
+  
+  private void drawReadings() {
+    for (String key : sensorData.keySet()) {
+      drawRadarPosition(sensorData.get(key), String.toInteger(key));
+    }
+  }
+  
+  private void drawLines() {
     line(width/2, height/2, width/2, 0);
     line(width - maximumDistance - 100, height/2, width - 100, height/2);
-    
   }
   
   void drawRadarPosition(int radarRadius, float degree) {
@@ -44,4 +66,5 @@ public class Radar {
     stroke(62, 180, 137);
     ellipse(width/2 + x, height/2 - y, 10, 10);
   }
+  
 }

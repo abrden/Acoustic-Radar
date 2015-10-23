@@ -1,8 +1,10 @@
+import java.util.Hashtable;
+
 public class Radar {
   
   private int MAX_DISTANCE = 600;
   private int MIN_DISTANCE = 10;
-  private int INNER_RADAR_ELLIPSES = 8;
+  private int INNER_RADAR_ELLIPSES = 10;
   
   private int maximumDistance;
   private int minimumDistance;
@@ -40,8 +42,12 @@ public class Radar {
   }
   
   private void drawReadings() {
-    for (String key : sensorData.keySet()) {
-      drawRadarPosition(sensorData.get(key), String.toInteger(key));
+    for (Integer key : sensorData.distances.keySet()) {
+      System.out.println("");
+      
+      setPoint(sensorData.distances.get(key), key);   
+
+      //drawRadarPosition(sensorData.distances.get(key), key);
     }
   }
   
@@ -50,7 +56,7 @@ public class Radar {
     line(width - maximumDistance - 100, height/2, width - 100, height/2);
   }
   
-  void drawRadarPosition(int radarRadius, float degree) {
+  void drawRadarPosition(Long radarRadius, Integer degree) {
     float x = radarRadius * cos(radians(degree));
     float y = radarRadius * sin(radians(degree));
     
@@ -58,7 +64,7 @@ public class Radar {
     line(width/2, height/2, (width + x)/2, (height - y)/2);
   }
   
-  void setPoint(int distance, float degree) {    
+  void setPoint(Long distance, Integer degree) {    
     float x = distance * cos(radians(degree));
     float y = distance * sin(radians(degree));
     

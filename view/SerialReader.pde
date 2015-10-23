@@ -6,9 +6,9 @@ public class SerialReader {
     this.port = port;
   }
   
-  public void serialEvent() {
-    int degree;
-    int distance;
+  public SerialRead serialEvent() {
+    int degree = 0;
+    int distance = 0;
   
     String output = port.readStringUntil('\n');  // read the serial port until a new line
     
@@ -19,29 +19,17 @@ public class SerialReader {
     
     if (output != null) {  // if theres data in between the new lines      
       output = trim(output); // get rid of whitespace
-      
-      try {
-      
-        String strDegree = output.substring(0, output.indexOf("-"));
-        String strDistance = output.substring(output.indexOf("-") + 1, output.length());
-        degree = Integer.parseInt(strDegree);
-        distance = convertDistanceToPixels(Integer.parseInt(strDistance));
-        
-      } catch(NumberFormatException|StringIndexOutOfBoundsException e) {
-        
-        degree = sensorData.getNextDegree();
-        distance = sensorData.getDistance(NO_DEGREE_DATA);
-      
-      }
+   
+      String strDegree = output.substring(0, output.indexOf("-"));
+      String strDistance = output.substring(output.indexOf("-") + 1, output.length());
+      degree = Integer.parseInt(strDegree);
+      distance = convertDistanceToPixels(Integer.parseInt(strDistance));
     }
-    
-    return new SerialReader(degree, distance);
-      
+    return new SerialRead(degree, distance);
   }
 
-  int convertDistanceToPixels(int distance) {
-    int conversionRate = 1;
+  private int convertDistanceToPixels(int distance) {
+    int conversionRate = 2;
     return distance * conversionRate;
   }
-
 }

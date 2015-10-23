@@ -1,6 +1,8 @@
+import java.util.Hashtable;
+
 public class SensorData {
   
-  Hashtable<int, long> distances = new Hashtable<int, long>();
+  public Hashtable<Integer, Long> distances = new Hashtable<Integer, Long>();
     
   public long getDistance(int degree) {
     if (distances.contains(degree)) return distances.get(degree);
@@ -8,5 +10,7 @@ public class SensorData {
   }
   
   public void addData(SerialRead read) {
-    distances.put(read.getDegree(), read.getDistance());
+    distances.put(new Integer(read.getDegree()),new Long(read.getDistance()));
   }
+  
+}

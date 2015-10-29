@@ -13,7 +13,7 @@ void setup() {
   smooth();
   
   //delay(500);
-  port = new Serial(this, "COM4", 9600);
+  port = new Serial(this, Serial.list()[0], 9600);
   port.bufferUntil('.');
   
   radar = new Radar();

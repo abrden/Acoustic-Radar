@@ -94,11 +94,11 @@ public class Radar {
     
     textSize(15);
     fill(98,245,60);
-    translate(961+960*cos(radians(30)),982-960*sin(radians(30)));
+    translate(400+400*cos(radians(30)),400-400*sin(radians(30)));
     rotate(-radians(-60));
     text("30°",0,0);
     resetMatrix();
-    translate(954+960*cos(radians(60)),984-960*sin(radians(60)));
+    translate(400+400*cos(radians(60)),400-400*sin(radians(60)));
     rotate(-radians(-30));
     text("60°",0,0);
     resetMatrix();
@@ -106,11 +106,11 @@ public class Radar {
     rotate(radians(0));
     text("90°",0,0);
     resetMatrix();
-    translate(935+960*cos(radians(120)),1003-960*sin(radians(120)));
+    translate(400+400*cos(radians(120)),400-400*sin(radians(120)));
     rotate(radians(-30));
     text("120°",0,0);
     resetMatrix();
-    translate(940+960*cos(radians(150)),1018-960*sin(radians(150)));
+    translate(400+400*cos(radians(150)),400-400*sin(radians(150)));
     rotate(radians(-60));
     text("150°",0,0);
     

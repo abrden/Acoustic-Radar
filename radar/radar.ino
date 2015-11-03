@@ -10,7 +10,7 @@ const int minDegree = 15;
 const int maxDegree = 165;
 
 long duration;
-long distance;
+double distance;
 Servo myServo;
 
 void setup() {
@@ -69,20 +69,40 @@ void calculateDistance() {
   
 }
 
-long microsecondsToCentimeters(long microseconds) {
+double microsecondsToCentimeters(long microseconds) {
   
   // The speed of sound is 340 m/s or 29 microseconds per centimeter.
   // The ping travels out and back, so to find the distance of the
   // object we take half of the distance travelled.
-  return microseconds / 29 / 2;
+  return microseconds / 29.0 / 2.0;
 
 }
 
 void printData(int degree) {
   
-  Serial.print(degree);
-  Serial.print(",");
-  Serial.print(distance);
-  Serial.print(".");
-
+  //Serial.print(degree);
+  //Serial.print(",");
+  //Serial.print(distance);
+  //Serial.print(".");
+  
+  if (degree == 90) {
+    
+    Serial.println("");
+    
+    Serial.println("1");
+    Serial.print(degree);
+    Serial.print("-");
+    Serial.println(distance);
+    
+    
+    Serial.println("3/4");
+    Serial.print(degree);
+    Serial.print("-");
+    Serial.println(distance * 3.0/4.0);
+   
+    Serial.println("2/3");
+    Serial.print(degree);
+    Serial.print("-");
+    Serial.println(distance * 2.0/3.0);
+}
 }

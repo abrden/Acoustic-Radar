@@ -33,8 +33,7 @@ void serialEvent(Serial port) {
   String data = port.readStringUntil('.');
     
   // Printeo para la consola
-  System.out.print("out");
-  System.out.print(data);
+ System.out.println("" + degree +" - "+ distance);
   //
   
   try {
@@ -50,6 +49,6 @@ void serialEvent(Serial port) {
 }
 
 float convertDistanceToPixels(int distance) {
-  float conversionRate = 10; // 1cm = 10px
+  float conversionRate = 5; // 1cm = 5px
   return distance * conversionRate;
 }

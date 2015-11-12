@@ -12,9 +12,8 @@ void setup() {
   size(800, 500);
   smooth();
   
-  //delay(500);
   port = new Serial(this, Serial.list()[0], 9600);
-  port.bufferUntil('.');
+  port.bufferUntil('-');
   
   radar = new Radar();
 }
@@ -30,7 +29,7 @@ void draw() {
 }
 
 void serialEvent(Serial port) {
-  String data = port.readStringUntil('.');
+  String data = port.readStringUntil('-');
     
   // Printeo para la consola
   System.out.print("out");
@@ -47,6 +46,7 @@ void serialEvent(Serial port) {
   } catch (Exception e) {
     System.out.print("Something failed");
   }
+  
 }
 
 float convertDistanceToPixels(int distance) {

@@ -50,6 +50,6 @@ void serialEvent(Serial port) {
 }
 
 float convertDistanceToPixels(int distance) {
-  float conversionRate = 10; // 1cm = 10px
+  float conversionRate = 20; // 1cm = 20px
   return distance * conversionRate;
 }

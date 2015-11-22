@@ -12,8 +12,8 @@ void setup() {
   size(800, 500);
   smooth();
   
-  port = new Serial(this, Serial.list()[0], 9600);
-  port.bufferUntil('-');
+//  port = new Serial(this, Serial.list()[0], 9600);
+//  port.bufferUntil('-');
   
   radar = new Radar();
 }

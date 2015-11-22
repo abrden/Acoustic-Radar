@@ -16,13 +16,14 @@ public class Radar {
     stroke(98,245,31);
     
     // draws the arc lines
-    arc(0,0,700,700,PI,TWO_PI);
-    arc(0,0,600,600,PI,TWO_PI);
-    arc(0,0,500,500,PI,TWO_PI);
-    arc(0,0,400,400,PI,TWO_PI);
-    arc(0,0,300,300,PI,TWO_PI);
-    arc(0,0,200,200,PI,TWO_PI);
-    arc(0,0,100,100,PI,TWO_PI);
+    for (int bigStroke = 0; bigStroke < 7; bigStroke++) {
+      strokeWeight(2);
+      arc(0,0,100 * (bigStroke + 1),100 * (bigStroke + 1),PI,TWO_PI);
+      for (int littleStroke = 0; littleStroke < 5; littleStroke++) {
+        strokeWeight(0.01);
+        arc(0,0,20 * littleStroke + 100 * bigStroke,20 * littleStroke + 100 * bigStroke,PI,TWO_PI);   
+      }
+    }
     
     // draws the degree lines
     line(-400,0,400,0);
@@ -73,13 +74,13 @@ public class Radar {
     
     fill(98,245,31);
     textSize(15);
-    text("10",440,420);
-    text("20",495,420);
-    text("30",545,420);
-    text("40",595,420);
-    text("50",645,420);
-    text("60",695,420);
-    text("70",745,420);
+    text("5",440,420);
+    text("10",495,420);
+    text("15",545,420);
+    text("20",595,420);
+    text("25",645,420);
+    text("30",695,420);
+    text("35",745,420);
     
     textSize(20);
     String label;

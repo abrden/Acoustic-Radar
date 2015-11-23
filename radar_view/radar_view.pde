@@ -32,8 +32,8 @@ void serialEvent(Serial port) {
   String data = port.readStringUntil('-');
     
   // Printeo para la consola
-  System.out.println("out");
-  System.out.println(data);
+  //System.out.println("out");
+  //System.out.println(data);
   //
   
   try {
@@ -43,10 +43,20 @@ void serialEvent(Serial port) {
     distance = float(data.substring(data.indexOf(",") + 1, data.length()));
     pxDistance = convertDistanceToPixels(distance);
   
+    printData();
+    
   } catch (Exception e) {
     System.out.print("Something failed");
   }
   
+}
+
+void printData() {
+  System.out.print("Degree: ");
+  System.out.print(degree);
+  System.out.print(" - ");
+  System.out.print("Distance: ");
+  System.out.println(distance);
 }
 
 float convertDistanceToPixels(float distance) {

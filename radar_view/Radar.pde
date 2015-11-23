@@ -1,6 +1,6 @@
 public class Radar {
   
-  public void drawRadar(int distance, float pxDistance, int degree) {
+  public void drawRadar(float distance, float pxDistance, int degree) {
     radar.drawCanvas(); 
     radar.drawLine(degree);
     radar.drawObject(distance, pxDistance, degree);
@@ -13,25 +13,28 @@ public class Radar {
     translate(400,400); // line's center of rotation
     noFill();
     strokeWeight(1);
-    stroke(98,245,31);
     
     // draws the arc lines
     for (int bigStroke = 0; bigStroke < 7; bigStroke++) {
+      stroke(98,245,31);
       strokeWeight(2);
       arc(0,0,100 * (bigStroke + 1),100 * (bigStroke + 1),PI,TWO_PI);
       for (int littleStroke = 0; littleStroke < 5; littleStroke++) {
+        stroke(105,105,105);
         strokeWeight(0.01);
         arc(0,0,20 * littleStroke + 100 * bigStroke,20 * littleStroke + 100 * bigStroke,PI,TWO_PI);   
       }
     }
     
     // draws the degree lines
+    stroke(98,245,31);
+    strokeWeight(2);
     line(-400,0,400,0);
-    line(0,0,-400*cos(radians(30)),-400*sin(radians(30)));
-    line(0,0,-400*cos(radians(60)),-400*sin(radians(60)));
-    line(0,0,-400*cos(radians(90)),-400*sin(radians(90)));
-    line(0,0,-400*cos(radians(120)),-400*sin(radians(120)));
-    line(0,0,-400*cos(radians(150)),-400*sin(radians(150)));
+    line(0,0,-380*cos(radians(30)),-380*sin(radians(30)));
+    line(0,0,-380*cos(radians(60)),-380*sin(radians(60)));
+    line(0,0,-360*cos(radians(90)),-360*sin(radians(90)));
+    line(0,0,-380*cos(radians(120)),-380*sin(radians(120)));
+    line(0,0,-380*cos(radians(150)),-380*sin(radians(150)));
     line(-400*cos(radians(30)),0,400,0);
     
     popMatrix();
@@ -51,7 +54,7 @@ public class Radar {
     popMatrix();
   }
 
-  private void drawObject(int distance, float pxDistance, int degree) {
+  private void drawObject(float distance, float pxDistance, int degree) {
     pushMatrix();
     
     translate(400,400); // line's center of rotation
@@ -65,7 +68,7 @@ public class Radar {
     popMatrix();
   }
   
-  private void drawText(int distance, int degree) {
+  private void drawText(float distance, int degree) {
     pushMatrix();
 
     fill(0,0,0);
@@ -103,7 +106,7 @@ public class Radar {
     rotate(-radians(-30));
     text("60°",0,0);
     resetMatrix();
-    translate(400+400*cos(radians(90)),500-400*sin(radians(90)));
+    translate(400+350*cos(radians(90)),500-480*sin(radians(90)));
     rotate(radians(0));
     text("90°",0,0);
     resetMatrix();

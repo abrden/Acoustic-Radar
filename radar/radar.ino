@@ -83,7 +83,7 @@ double microsecondsToCentimeters(long microseconds) {
 }
 
 void printData(int degree) {
-  
+
   Serial.print(degree);
   Serial.print(",");
   Serial.print(distance);

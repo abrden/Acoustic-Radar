@@ -49,7 +49,7 @@ public class Radar {
     stroke(30,250,60);
     
     // draws the line according to the degree
-    line(0,0,950*cos(radians(degree)),-950*sin(radians(degree)));
+    line(0,0,380*cos(radians(degree)),-380*sin(radians(degree)));
     
     popMatrix();
   }
@@ -63,7 +63,7 @@ public class Radar {
     stroke(255,10,10);
     
     // draws the object according to the degree and the distance
-    if (distance < 70) line(pxDistance*cos(radians(degree)),-pxDistance*sin(radians(degree)),950*cos(radians(degree)),-950*sin(radians(degree)));
+    if (distance < 35) line(pxDistance*cos(radians(degree)),-pxDistance*sin(radians(degree)),380*cos(radians(degree)),-380*sin(radians(degree)));
     
     popMatrix();
   }
@@ -87,12 +87,12 @@ public class Radar {
     
     textSize(20);
     String label;
-    if(distance > 70) label = "Out of Range";
+    if(distance > 35) label = "Out of Range";
     else label = "In Range";
     text("Object: " + label, 50, 450);
     text("Degree: " + degree +" °", 450, 450);
     text("Distance: ", 600, 450);
-    if(distance < 70) text("        " + distance +" cm", 650, 450);
+    if(distance < 35) text("        " + distance +" cm", 650, 450);
     textSize(15);
     text("Acoustic Radar", 50, 480);
     

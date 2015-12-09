@@ -39,7 +39,7 @@ void serialEvent(Serial port) {
   try {
   
     data = data.substring(0, data.length() - 1);
-    degree = int(data.substring(0, data.indexOf(",")));
+    degree = 180 - int(data.substring(0, data.indexOf(",")));
     distance = float(data.substring(data.indexOf(",") + 1, data.length()));
     pxDistance = convertDistanceToPixels(distance);
   

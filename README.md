@@ -1,5 +1,5 @@
 # Acoustic-Radar
-Proyecto final - Laboratorio (FIUBA)
+Proyecto final - 66.02 Laboratorio (FIUBA)
 
 Integrantes
 ---

@@ -24,7 +24,7 @@ El trabajo consistió en construir un radar acústico con el cual se puede medir
 - [x] Los errores cometidos por el radar deben poder ser analizados y cuantificados. También, se deben poder obtener valores de incerteza específicos asociados a cada uno de los resultados presentados durante el trabajo.
 
 <p align="center">
-  <img src="http://s4.postimg.org/mmtznc8gd/image.jpg" alt="Radar acústico, mejor conocido como Walle"/>
+  <img src="http://s14.postimg.org/vhfpbjldd/image.jpg" alt="Radar acústico, mejor conocido como Walle"/>
 </p>
 
 El informe completo se encuentra incluido en el presente repositorio :dizzy:

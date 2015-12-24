@@ -2,14 +2,14 @@
 ## Proyecto final - 66.02 Laboratorio (FIUBA)
 El trabajo consistió en construir un radar acústico con el cual se puede medir la posición, en coordenadas polares, de los diferentes obstáculos presentes frente al mismo. Este proyecto incluye la construcción del instrumento; compuesto por una placa Arduino UNO, un servomotor y un sensor ultrasónico, el desarrollo de una interfaz gráfica para la visualización de obstáculos, la calibración del instrumento y la realización de mediciones con el mismo.
 
-Integrantes
+### Integrantes
 ---
-- Agustina Barbetta - @abrden
-- Eugenia Mariotti - @emariotti3
-- Manuel Porto - @manuporto
-- Santiago Lazzari - @santilazzari
+- Agustina Barbetta @abrden
+- Eugenia Mariotti @emariotti3
+- Manuel Porto @manuporto
+- Santiago Lazzari @santilazzari
 
-Objetivos
+### Objetivos
 ---
 - [x] Obtener insumos; placa Arduino UNO, sensor ultrasonico y servomotor.
 - [x] Aprender a programar el microcontrolador de la placa Arduino UNO.
@@ -23,6 +23,6 @@ Objetivos
 - [x] Realizar sobre el radar, una medición con cada uno de los instrumentos aprendidos en la materia.
 - [x] Los errores cometidos por el radar deben poder ser analizados y cuantificados. También, se deben poder obtener valores de incerteza específicos asociados a cada uno de los resultados presentados durante el trabajo.
 
-![Radar acústico, mejor conocido como Walle](http://s30.postimg.org/rsx9smrqp/image.jpg)
+![Radar acústico, mejor conocido como Walle](http://s2.postimg.org/s73fy3k2x/image.jpg)
 
 El informe completo se encuentra incluido en el presente repositorio :dizzy:

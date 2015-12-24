@@ -4,10 +4,10 @@ El trabajo consistió en construir un radar acústico con el cual se puede medir
 
 ### Integrantes
 ---
-- Agustina Barbetta @abrden
-- Eugenia Mariotti @emariotti3
-- Manuel Porto @manuporto
-- Santiago Lazzari @santilazzari
+- Agustina Barbetta [@abrden](https://github.com/abrden)
+- Eugenia Mariotti [@emariotti3](https://github.com/emariotti3)
+- Manuel Porto [@manuporto](https://github.com/manuporto)
+- Santiago Lazzari [@santilazzari](https://github.com/santilazzari)
 
 ### Objetivos
 ---
@@ -23,6 +23,8 @@ El trabajo consistió en construir un radar acústico con el cual se puede medir
 - [x] Realizar sobre el radar, una medición con cada uno de los instrumentos aprendidos en la materia.
 - [x] Los errores cometidos por el radar deben poder ser analizados y cuantificados. También, se deben poder obtener valores de incerteza específicos asociados a cada uno de los resultados presentados durante el trabajo.
 
-![Radar acústico, mejor conocido como Walle](http://s2.postimg.org/s73fy3k2x/image.jpg)
+<p align="center">
+  <img src="http://s4.postimg.org/mmtznc8gd/image.jpg" alt="Radar acústico, mejor conocido como Walle"/>
+</p>
 
 El informe completo se encuentra incluido en el presente repositorio :dizzy:
